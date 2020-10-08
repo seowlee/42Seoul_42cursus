@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: seowlee <seowlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:26:46 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:35:19 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/10/08 21:13:16 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+void	*memset(void *dest, int c, size_t len);
 size_t	ft_strlen(const char *str);
 size_t	strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);

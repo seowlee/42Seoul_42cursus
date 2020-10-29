@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 19:03:37 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:26:01 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/29 00:21:05 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/29 09:13:43 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t copy_size;
-	size_t i;
+	unsigned char *p;
 
-	copy_size = ft_strlen(src);
-	if (!size)
-		return (copy_size);
-	i = 0;
-	while (src[i] && i < size - 1)
+	p = (unsigned char *)s;
+	while (n--)
 	{
-		dst[i] = src[i];
-		i++;
+		if (*p == (unsigned char)c)
+			return ((void *)p);
+		else
+			p++;
 	}
-	dst[i] = '\0';
-	return (copy_size);
+	return (0);
 }

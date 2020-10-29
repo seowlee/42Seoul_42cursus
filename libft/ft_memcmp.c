@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 19:03:37 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:26:01 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/29 09:44:38 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/29 11:10:00 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t copy_size;
-	size_t i;
+	unsigned char	*ns1;
+	unsigned char	*ns2;
+	size_t			i;
 
-	copy_size = ft_strlen(src);
-	if (!size)
-		return (copy_size);
+	ns1 = (unsigned char *)s1;
+	ns2 = (unsigned char *)s2;
 	i = 0;
-	while (src[i] && i < size - 1)
+	while (n--)
 	{
-		dst[i] = src[i];
+		if (ns1[i] != ns2[i])
+			return (ns1[i] - ns2[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (copy_size);
+	return (0);
 }

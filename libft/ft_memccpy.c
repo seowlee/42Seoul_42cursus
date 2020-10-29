@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 19:03:37 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:26:01 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/28 19:33:33 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/28 21:00:47 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t copy_size;
-	size_t i;
+	unsigned char	*ndest;
+	unsigned char	*nsrc;
+	unsigned char	ch;
+	size_t			i;
 
-	copy_size = ft_strlen(src);
-	if (!size)
-		return (copy_size);
+	ndest = (unsigned char *)dest;
+	nsrc = (unsigned char *)src;
+	ch = c;
 	i = 0;
-	while (src[i] && i < size - 1)
+	while (i < n)
 	{
-		dst[i] = src[i];
+		ndest[i] = nsrc[i];
+		if (nsrc[i] == ch)
+			return (ndest + (i + 1));
 		i++;
 	}
-	dst[i] = '\0';
-	return (copy_size);
+	return (0);
 }

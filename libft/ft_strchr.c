@@ -6,22 +6,26 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/03 15:45:38 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:25:15 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/10/29 23:39:34 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int character)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	size_t	i;
+	char	find;
 
+	find = (char)c;
 	i = 0;
-	while (str[i] != (char)character)
+	while (s[i])
 	{
-		if (str[i] == '\0')
-			return (0);
+		if (s[i] == find)
+			return ((char *)s + i);
 		i++;
 	}
-	return ((char *)(str + i));
+	if (s[i] == find)
+		return ((char *)s + i);
+	return (0);
 }

@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 19:03:37 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:26:01 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/29 16:56:02 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/29 19:58:44 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t copy_size;
-	size_t i;
+	char	*concat;
+	size_t	i;
+	size_t	j;
 
-	copy_size = ft_strlen(src);
-	if (!size)
-		return (copy_size);
+	if (!s1 || !s2)
+		return (NULL);
+	concat = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!concat)
+		return (NULL);
 	i = 0;
-	while (src[i] && i < size - 1)
+	j = 0;
+	while (s1[i])
 	{
-		dst[i] = src[i];
+		concat[i] = s1[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (copy_size);
+	while (s2[j])
+	{
+		concat[i] = s2[j];
+		i++;
+		j++;
+	}
+	concat[i] = '\0';
+	return (concat);
 }

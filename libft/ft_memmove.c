@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/01 19:03:37 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 11:26:01 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/28 23:02:32 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/28 23:59:21 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t copy_size;
-	size_t i;
+	unsigned char	*ndest;
+	unsigned char	*nsrc;
+	size_t			i;
 
-	copy_size = ft_strlen(src);
-	if (!size)
-		return (copy_size);
-	i = 0;
-	while (src[i] && i < size - 1)
+	ndest = (unsigned char *)dest;
+	nsrc = (unsigned char *)src;
+	if (dest <= src)
 	{
-		dst[i] = src[i];
-		i++;
+		while (i < n)
+		{
+			ndest[i] = nsrc[i];
+			i++;
+		}
 	}
-	dst[i] = '\0';
-	return (copy_size);
+	else
+	{
+		while (n-- > 0)
+			ndest[n] = nsrc[n];
+	}
+	return (dest);
 }

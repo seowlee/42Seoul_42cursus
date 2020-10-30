@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 21:38:38 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/07 21:17:57 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/10/30 14:14:16 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
+	i = 0;
 	if (dst_len < size - 1)
 	{
 		while (src[i] && i < size - dst_len - 1)
@@ -29,7 +30,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		}
 		dst[dst_len + i] = '\0';
 	}
-	if (size >= dst_len)
+	if (size > dst_len)
 		return (dst_len + src_len);
 	return (size + src_len);
 }

@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 23:33:05 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/03 10:56:02 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/31 00:34:05 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/31 10:04:32 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	whole_num_to_char(int n, int fd)
 {
-	size_t	i;
-	char	*s2;
-	char	find;
-
-	i = ft_strlen(s);
-	s2 = (char *)s;
-	find = (char)c;
-	while (i > 0)
+	if (n > 9)
 	{
-		if (s2[i] == find)
-			return (s2 + i);
-		i--;
+		whole_num_to_char(n / 10, fd);
+		whole_num_to_char(n % 10, fd);
 	}
-	if (s2[i] == find)
-		return (s2);
-	return (0);
+	else if (n >= 0)
+	{
+		n += '0';
+		write(fd, &n, 1);
+	}
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	whole_num_to_char(n, fd);
 }

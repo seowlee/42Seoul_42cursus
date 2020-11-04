@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/29 23:33:05 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/03 10:56:02 by seowlee          ###   ########.fr       */
+/*   Created: 2020/10/30 23:38:18 by seowlee           #+#    #+#             */
+/*   Updated: 2020/10/30 23:44:20 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	char	*s2;
-	char	find;
+	int	i;
 
-	i = ft_strlen(s);
-	s2 = (char *)s;
-	find = (char)c;
-	while (i > 0)
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		if (s2[i] == find)
-			return (s2 + i);
-		i--;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	if (s2[i] == find)
-		return (s2);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:48:05 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/05 01:04:59 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/08 20:15:16 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 	{
 		tail = ft_lstlast(*lst);
+		new->next = tail->next;
 		tail->next = new;
 	}
 }

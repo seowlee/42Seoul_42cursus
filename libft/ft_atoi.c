@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:32:06 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/30 14:16:39 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/07 01:27:22 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@ int		ft_atoi(const char *str)
 	int num;
 	int i;
 
+	sign = 1;
+	num = 0;
+	i = 0;
 	if (!str)
 		return (0);
-	i = 0;
-	while ((str[i] >= '\t' && str[i] <= 'r') || str[i] == ' ')
+	while (str[i] && (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] && (str[i] == '-' || str[i] == '+'))
 		if (str[i++] == '-')
 			sign = -1;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
 		num = num * 10;
 		num += str[i] - '0';

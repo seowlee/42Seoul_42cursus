@@ -3,6 +3,17 @@
 #include <string.h>
 
 /*
+** ft_atoi
+*/
+void	test_atoi(void)
+{
+	printf("=====test_atoi=====\n");
+	char *str = "125";
+	int num = ft_atoi(str);
+	printf("num : %s, atoi : %d \n", str, num);
+}
+
+/*
 **ft_memmove
 */
 void	test_memmove(void)
@@ -139,6 +150,10 @@ void	test_putnbr_fd(void)
 }
 int		main(void)
 {
+	/*
+	** ft_strjoin
+	*/
+	test_atoi();
 	/*
 	**ft_memmove
 	*/

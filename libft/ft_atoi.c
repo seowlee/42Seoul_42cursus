@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:32:06 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/07 01:27:22 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/11 21:42:21 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *str)
 {
-	int sign;
-	int num;
+	long sign;
+	long num;
 	int i;
 
 	sign = 1;

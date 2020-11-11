@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:39:29 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/30 10:09:32 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/11 21:34:52 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*nsrc;
 	size_t			i;
 
-	if (!dest || !src)
-		return (0);
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	ndest = (unsigned char *)dest;
 	nsrc = (unsigned char *)src;
 	i = 0;

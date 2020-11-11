@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:22:09 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/05 22:23:21 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/11 22:44:54 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *newlist;
 	t_list *temp;
 
-	if (lst == NULL || f == NULL || del == NULL)
+	if (lst == NULL || f == NULL)
 		return (NULL);
 	newlist = NULL;
 	while (lst)

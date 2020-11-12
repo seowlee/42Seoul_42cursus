@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:32:06 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/11 22:23:58 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/12 12:00:31 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int		ft_atoi(const char *str)
 	sign = 1;
 	num = 0;
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i] && (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
 			str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
 		i++;

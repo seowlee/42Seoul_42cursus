@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 19:03:37 by seowlee           #+#    #+#             */
-/*   Updated: 2020/10/30 14:14:44 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/12 12:07:18 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t copy_size;
 	size_t i;
 
+	if (!src && !dst)
+		return (0);
 	copy_size = ft_strlen(src);
 	if (!size)
 		return (copy_size);

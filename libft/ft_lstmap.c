@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:22:09 by seowlee           #+#    #+#             */
-/*   Updated: 2020/11/11 22:44:54 by seowlee          ###   ########.fr       */
+/*   Updated: 2020/11/12 11:37:25 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		temp = ft_lstnew((*f)(lst->content));
 		if (temp == NULL)
 		{
-			ft_lstclear(&newlist, temp);
+			ft_lstclear(&newlist, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&newlist, temp);

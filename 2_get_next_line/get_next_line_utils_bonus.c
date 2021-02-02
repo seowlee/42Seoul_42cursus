@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 23:53:33 by seowlee           #+#    #+#             */
-/*   Updated: 2021/02/02 23:57:14 by seowlee          ###   ########.fr       */
+/*   Updated: 2021/02/03 01:22:37 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strdup(const char *s)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
+	p = str;
 	while (*s)
 		*p++ = *s++;
 	*p = '\0';

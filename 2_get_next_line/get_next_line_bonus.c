@@ -6,7 +6,7 @@
 /*   By: seowlee <seowlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 23:52:44 by seowlee           #+#    #+#             */
-/*   Updated: 2021/02/02 23:57:27 by seowlee          ###   ########.fr       */
+/*   Updated: 2021/02/04 23:53:28 by seowlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,14 @@ static int	split_line(char **line, char **backup, char *newline)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
-	//char		buf[BUFFER_SIZE + 1];
 	char		*buf;
 	static char	*backup[OPEN_MAX];
 	char		*newline;
 	int			byte;
 
-	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE <= 0 )
+	if (fd < 0 || fd > OPEN_MAX || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	if (!(buf = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
@@ -61,5 +60,5 @@ int		get_next_line(int fd, char **line)
 	free(buf);
 	if (byte < 0)
 		return (-1);
-	return(split_line(line, &backup[fd], newline));
+	return (split_line(line, &backup[fd], newline));
 }

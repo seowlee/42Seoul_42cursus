@@ -9,9 +9,9 @@ int	main(void)
 	int		res;
 
 	fd = open("ttest", O_RDONLY);
-	res = get_next_line(fd, &line);
-	while (res)
+	while (get_next_line(fd, &line))
 	{
+		res = get_next_line(fd, &line);
 		printf("line : %s\n", line);
 		printf("return value : %d\n", res);
 		free(line);

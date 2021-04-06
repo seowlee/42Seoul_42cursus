@@ -63,7 +63,7 @@ void	ft_parse_precision(const char **fmt, va_list ap, t_ftag *tag)
 }
 
 int		ft_parse(const char **fmt, va_list ap, t_ftag *tag)
-{	
+{
 	ft_parse_flag(fmt, tag);
 	ft_parse_width(fmt, ap, tag);
 	if (**fmt == '.' && (*fmt)++)

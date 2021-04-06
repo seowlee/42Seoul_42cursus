@@ -21,30 +21,30 @@ void	ft_init(t_ftag *tag)
 	tag->precision = 0;
 	tag->type = 0;
 	tag->padding = ' ';
-
 }
+
 int		ft_printf(const char *format, ...)
 {
 	va_list ap;
 	t_ftag	tag;
-	int		nbrCharacters;
+	int		nbr_characters;
 
 	va_start(ap, format);
 	ft_init(&tag);
-	nbrCharacters = 0;
+	nbr_characters = 0;
 	while (*format)
 	{
-		if(*format != '%')
+		if (*format != '%')
 		{
 			ft_putchar_fd(*format++, 1);
-			nbrCharacters++;
+			nbr_characters++;
 			continue;
 		}
 		format++;
-		nbrCharacters += ft_parse(&format, ap, &tag);
+		nbr_characters += ft_parse(&format, ap, &tag);
 		format++;
 		ft_init(&tag);
 	}
 	va_end(ap);
-	return (nbrCharacters);
+	return (nbr_characters);
 }

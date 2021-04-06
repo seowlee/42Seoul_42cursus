@@ -37,7 +37,7 @@ int	ft_type_num(va_list ap, t_ftag *tag, char type)
 	}
 	count = ft_print_len(tag, src);
 	free(src);
-	return(count);
+	return (count);
 }
 
 int	ft_type_char(va_list ap, t_ftag *tag, char type)
@@ -51,15 +51,15 @@ int	ft_type_char(va_list ap, t_ftag *tag, char type)
 	count = 1;
 	if (tag->width > 1)
 	{
-		count += tag->width -1;
+		count += tag->width - 1;
 		if (tag->minus)
 		{
 			ft_putchar_fd(chr, 1);
-			ft_iter_putchar_fd(tag->padding, 1, tag->width -1);
+			ft_iter_putchar_fd(tag->padding, 1, tag->width - 1);
 		}
 		else
 		{
-			ft_iter_putchar_fd(tag->padding, 1, tag->width -1);
+			ft_iter_putchar_fd(tag->padding, 1, tag->width - 1);
 			ft_putchar_fd(chr, 1);
 		}
 	}

@@ -57,7 +57,7 @@ char	*ft_itoa_printf(int n, t_ftag *tag)
 	while (1)
 	{
 		if (str[len] == '-' || len < 0)
-			break;
+			break ;
 		str[len--] = num % 10 + '0';
 		num /= 10;
 	}

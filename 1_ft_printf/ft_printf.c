@@ -6,7 +6,7 @@
 /*   By: seowoo <seowoo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 22:34:09 by seowoo            #+#    #+#             */
-/*   Updated: 2021/04/06 19:49:58 by seowoo           ###   ########.fr       */
+/*   Updated: 2021/04/06 20:23:47 by seowoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,3 @@ int		ft_printf(const char *format, ...)
 	va_end(ap);
 	return (nbrCharacters);
 }
-
-#include <stdio.h>
-
-int main(){
-	printf("printf : %c\n", 'a');
-	ft_printf("ft_printf : %c", 'a');
-}
-
